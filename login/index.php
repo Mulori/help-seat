@@ -17,10 +17,11 @@
     <div class="container-fluid h-100 container-auth">
         <div class="row h-100">
             <div class="col d-flex flex-column justify-content-center" style="background-color: white;">
-                <div class="d-flex justify-content-between mb-auto mx-auto">
+                <div class="d-flex justify-content-between mx-auto">
                     <img src="../src/images/Help-Logo-transparent.png" class="img-logo"/>
                 </div>
                 <div class="container-form mx-auto w-100 p-5">
+                    
                     <form>
                         <div class="form-group">
                             <label id="title-form-login" >Acesso ao Sistema</label>
@@ -40,7 +41,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="footer mt-auto mx-auto p-3">
+                <div class="footer mx-auto p-3">
                     © 2022 HelpSeat.com.br MGTech                   
                 </div>
             </div>
