@@ -22,19 +22,19 @@
                 </div>
                 <div class="container-form mx-auto w-100 p-5">
                     
-                    <form>
+                    <form id="form-register" method="POST">
                         <div class="form-group">
                             <label id="title-form-login" >Crie sua conta</label>
-                            <input type="text" class="form-control" id="nameFull" aria-describedby="nameHelp" placeholder="Nome Completo">
+                            <input type="text" class="form-control" id="nameFull" aria-describedby="nameHelp" name="fullname" placeholder="Nome Completo">
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail">
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="E-mail">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                            <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Senha">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirme a senha">
+                            <input type="password" class="form-control" id="exampleInputPassword1" name="re-password" placeholder="Confirme a senha">
                         </div>
                         <div class="row h-100">
                             <div class="col w-100">
@@ -65,11 +65,44 @@
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
     </script>
+    <script type="text/javascript" src="../src/libs/jquery.serializejson.js"></script>
+
+
+
     <script>
         $("#btn-back").on("click", function(){
             window.history.back()
         });
+
+        $("#form-register").on("submit", function(e) {
+            e.preventDefault();
+
+            var formData = $("#form-register").serializeJSON();
+            var registerData = JSON.stringify(formData);
+
+            $.ajax({
+                url: '../../controller/register_user/controller_register_user.php',
+                dataType: 'text',
+                type: 'post',
+                data: {
+                    data: registerData
+                },
+                success: function(result){
+                    console.log(result);
+
+                    if(result){
+                        console.log('deu certo');
+                    }else{
+                        console.log('deu errado');
+                    }
+                },
+                error: function(e, ts, et){
+                    console.log(ts.responseText);
+                }
+            });
+        });
     </script>
+    
 </body>
 
 </html>
