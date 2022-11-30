@@ -96,8 +96,6 @@
         $("#form-register").on("submit", function(e) {
             e.preventDefault();
 
-            console.log('aquiii')
-
             if (!validarSenha($("#txtSenha1").val(), $("#txtSenha2").val())) {
                 alert('As senhas não conferem.');
                 return;
